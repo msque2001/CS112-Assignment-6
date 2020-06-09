@@ -100,12 +100,12 @@ public:
             ptrtemp->next = ptrnew;
         
     }
-        void displayscreen(int c)
+        void displayscreen(int p,int c)
         {
             node* ptrtemp = listheadptr;
             cout << endl;
            
-            cout << "Addition of polynomials is:  ";
+            cout << "Polynomial after addition: ";
                 
                 while (ptrtemp != NULL)
                 { 
@@ -116,6 +116,18 @@ public:
                     ptrtemp = ptrtemp->next;
                 }
         
+                node* ptrtemp2 = listheadptr;
+                cout << endl <<endl;
+
+                cout << "In the format of txt files given addition is: "<<endl<<p<<endl<<c<<endl;
+
+                while (ptrtemp2 != NULL)
+                {
+                    
+                        cout << ptrtemp2->num << " " ;
+                    ptrtemp2 = ptrtemp2->next;
+                }
+
                 
            }
 
@@ -138,12 +150,12 @@ public:
                 ptrtemp = ptrtemp->next;
             }
             added << endl << endl;
-            added << " In the format of txt files given addition is:" <<endl<< p << endl << c << endl;
+            added << "In the format of txt files given addition is:" <<endl<< p << endl << c << endl;
             node* ptrtemp2 = listheadptr;
             while (ptrtemp2 != NULL)
             {   
                 
-                added << ptrtemp2->num<<"\t";
+                added << ptrtemp2->num<<" ";
                 ptrtemp2 = ptrtemp2->next;
             }
 
@@ -209,7 +221,7 @@ void usinglinkedlist()
 
             }
         }
-        total.displayscreen(coef);
+        total.displayscreen(polynomials,coef);
         total.displayfile(polynomials,coef);
         data.close();
     
