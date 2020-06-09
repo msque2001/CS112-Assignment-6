@@ -128,46 +128,6 @@ void sumOfArrayPoly()
     data.close();
 }
 
-void usinglinkedlist()
-{
-    int polynomials = 0, coef = 0, num;
-
-    ifstream data;
-    data.open("example.txt");
-    data >> polynomials;
-    data >> coef;
-    linkedlist list, total;
-    int x = 0;
-    for (int i = 0; i < polynomials; i++)
-    {
-        for (int j = 0; j < coef;j++)
-        {
-
-            data >> num;
-            list.addnode(num, j);
-            if (x < coef)
-            {
-                total.addnode(num, j);
-                x++;
-
-            }
-            else
-                total.sum(num, j);
-
-        }
-    }
-    total.displayscreen(coef);
-    total.displayfile(polynomials, coef);
-    data.close();
-
-    cout << endl;
-
-
-
-
-
-}
-
 class linkedlist
 {
 private:
@@ -207,7 +167,7 @@ public:
             ptrtemp->next = ptrnew;
         
     }
-        void displayscreen(int c)
+        void displayscreen(int p,int c)
         {
             node* ptrtemp = listheadptr;
             cout << endl;
@@ -223,6 +183,18 @@ public:
                     ptrtemp = ptrtemp->next;
                 }
         
+                node* ptrtemp2 = listheadptr;
+                cout << endl <<endl;
+
+                cout << "In the format of txt files given addition is: "<<endl<<endl<<p<<endl<<c<<endl;
+
+                while (ptrtemp2 != NULL)
+                {
+                    
+                        cout << ptrtemp2->num << "\t" ;
+                    ptrtemp2 = ptrtemp2->next;
+                }
+
                 
            }
 
@@ -316,7 +288,7 @@ void usinglinkedlist()
 
             }
         }
-        total.displayscreen(coef);
+        total.displayscreen(polynomials,coef);
         total.displayfile(polynomials,coef);
         data.close();
     
