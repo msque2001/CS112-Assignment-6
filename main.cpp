@@ -1,9 +1,17 @@
+/*
+    Name: Muhammad Saaim Qureshi
+    Reg: 2019444
+
+    Name: Muwahid Asim
+    Reg: 2019352
+*/
+
 #include <iostream>
 #include <fstream>
 #include <string>
 using namespace std;
 
-#define INPUT_FILE "./sample_inputs/example1-10x5.txt"
+#define INPUT_FILE "./sample_inputs/example3-20x10.txt"
 #define OUTPUT_FILE "result_addition.txt"
 
 class ArrayPoly
