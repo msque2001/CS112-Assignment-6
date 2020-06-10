@@ -301,8 +301,9 @@ void sumOfArrayPoly()
 int main()
 {
     int choice;
-
-    cout << "Please enter the number correnspoding to your choice:\n 1 for storing in Array\n2 for stroing in linked list\n ";
+    cout << "1) Store in an Array\n";
+    cout << "2) Store in a Linked List\n";
+    cout << "Please enter the number correnspoding to your choice: ";
     cin >> choice, cout << endl;
 
     switch (choice)
