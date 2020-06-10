@@ -21,13 +21,13 @@ class ArrayPoly
 public:
     static int currentG; // CURRENT LOCATION OF GETTER POINTER
 
-    ArrayPoly(){};
+    ArrayPoly() {};
     ArrayPoly(int numOfCoff)
     {
 
         ifstream data;
         data.open(INPUT_FILE);
-        this -> numOfCoff = numOfCoff;
+        this->numOfCoff = numOfCoff;
 
         polynomial = new int[numOfCoff];
 
@@ -80,8 +80,8 @@ private:
         node* next;
     };
     node* listheadptr;
-   
-    
+
+
 
 public:
     linkedlist()
@@ -104,98 +104,98 @@ public:
         while (ptrtemp->next != NULL)
             ptrtemp = ptrtemp->next;
 
-        
-            ptrtemp->next = ptrnew;
-        
+
+        ptrtemp->next = ptrnew;
+
     }
-        void displayscreen(int p,int c)
+    void displayscreen(int p, int c)
+    {
+        node* ptrtemp = listheadptr;
+        cout << endl;
+
+        cout << "Polynomial after addition: ";
+
+        while (ptrtemp != NULL)
         {
-            node* ptrtemp = listheadptr;
-            cout << endl;
-           
-            cout << "Polynomial after addition: ";
-                
-                while (ptrtemp != NULL)
-                { 
-                    if(ptrtemp->next==NULL)
-                    cout << ptrtemp->num << "x" << ptrtemp->coefficient ;
-                    else
-                    cout << ptrtemp->num << "x" << ptrtemp->coefficient << " + ";
-                    ptrtemp = ptrtemp->next;
-                }
-        
-                node* ptrtemp2 = listheadptr;
-                cout << endl <<endl;
-
-                cout << "In the format of txt files given addition is: "<<endl<<p<<endl<<c<<endl;
-
-                while (ptrtemp2 != NULL)
-                {
-                    
-                        cout << ptrtemp2->num << " " ;
-                    ptrtemp2 = ptrtemp2->next;
-                }
-
-                
-           }
-
-
-        void displayfile(int p, int c)
-        {
-            node* ptrtemp = listheadptr;
-            cout << endl;
-
-            ofstream added;
-            added.open(OUTPUT_FILE);
-
-            added << "Polynomial after addition: ";
-            while (ptrtemp != NULL)
-            {
-                if (ptrtemp->next == NULL)
-                added << ptrtemp->num << "x" << ptrtemp->coefficient ;
-                else
-                    added << ptrtemp->num << "x" << ptrtemp->coefficient << " + ";
-                ptrtemp = ptrtemp->next;
-            }
-            added << endl << endl;
-            added << "In the format of txt files given addition is:" <<endl<< p << endl << c << endl;
-            node* ptrtemp2 = listheadptr;
-            while (ptrtemp2 != NULL)
-            {   
-                
-                added << ptrtemp2->num<<" ";
-                ptrtemp2 = ptrtemp2->next;
-            }
-
-            added.close();
+            if (ptrtemp->next == NULL)
+                cout << ptrtemp->num << "x" << ptrtemp->coefficient;
+            else
+                cout << ptrtemp->num << "x" << ptrtemp->coefficient << " + ";
+            ptrtemp = ptrtemp->next;
         }
-        void sum( int n, int c)
-        {
-           
-            node* tempptr = listheadptr;
-            while (tempptr != NULL)
-            {
-                if (tempptr->coefficient == c)
-                {
-                    tempptr->num = tempptr->num + n;
-                    return;
-                }
-                else
-                    tempptr = tempptr->next;
 
+        node* ptrtemp2 = listheadptr;
+        cout << endl << endl;
+
+        cout << "In the format of txt files given addition is: " << endl << p << endl << c << endl;
+
+        while (ptrtemp2 != NULL)
+        {
+
+            cout << ptrtemp2->num << " ";
+            ptrtemp2 = ptrtemp2->next;
+        }
+
+
+    }
+
+
+    void displayfile(int p, int c)
+    {
+        node* ptrtemp = listheadptr;
+        cout << endl;
+
+        ofstream added;
+        added.open(OUTPUT_FILE);
+
+        added << "Polynomial after addition: ";
+        while (ptrtemp != NULL)
+        {
+            if (ptrtemp->next == NULL)
+                added << ptrtemp->num << "x" << ptrtemp->coefficient;
+            else
+                added << ptrtemp->num << "x" << ptrtemp->coefficient << " + ";
+            ptrtemp = ptrtemp->next;
+        }
+        added << endl << endl;
+        added << "In the format of txt files given addition is:" << endl << p << endl << c << endl;
+        node* ptrtemp2 = listheadptr;
+        while (ptrtemp2 != NULL)
+        {
+
+            added << ptrtemp2->num << " ";
+            ptrtemp2 = ptrtemp2->next;
+        }
+
+        added.close();
+    }
+    void sum(int n, int c)
+    {
+
+        node* tempptr = listheadptr;
+        while (tempptr != NULL)
+        {
+            if (tempptr->coefficient == c)
+            {
+                tempptr->num = tempptr->num + n;
+                return;
             }
+            else
+                tempptr = tempptr->next;
 
         }
-        ~linkedlist()
+
+    }
+    ~linkedlist()
+    {
+        node* ptrprevious;
+        while (listheadptr != NULL)
         {
-            node* ptrprevious;
-            while (listheadptr != NULL)
-            {
-                ptrprevious = listheadptr;
-                listheadptr = listheadptr->next;
-                delete ptrprevious;
-            }
-     }
+            ptrprevious = listheadptr;
+            listheadptr = listheadptr->next;
+            delete ptrprevious;
+        }
+    }
 
 
 };
@@ -203,45 +203,45 @@ public:
 
 void usinglinkedlist()
 {
-    int polynomials=0, coef=0,num;
-    
+    int polynomials = 0, coef = 0, num;
+
     ifstream data;
     data.open(INPUT_FILE);
     data >> polynomials;
     data >> coef;
-    linkedlist list,total;
+    linkedlist list, total;
     int x = 0;
-        for (int i=0 ; i < polynomials; i++)
+    for (int i = 0; i < polynomials; i++)
+    {
+        for (int j = 0; j < coef;j++)
         {
-            for (int j = 0; j<coef;j++)
-            { 
 
-                data >> num;
-                list.addnode(num, j);
-                if(x<coef)
-                {
-                    total.addnode(num, j);
-                    x++;
-
-                }
-                else
-                total.sum(num,j);
+            data >> num;
+            list.addnode(num, j);
+            if (x < coef)
+            {
+                total.addnode(num, j);
+                x++;
 
             }
+            else
+                total.sum(num, j);
+
         }
-        total.displayscreen(polynomials,coef);
-        total.displayfile(polynomials,coef);
-        data.close();
-    
+    }
+    total.displayscreen(polynomials, coef);
+    total.displayfile(polynomials, coef);
+    data.close();
+
     cout << endl;
-    
+
 }
 
 int ArrayPoly::currentG = 0;
 
-void array_init(ArrayPoly *polys, int numOfPolys, int numOfCoff)
+void array_init(ArrayPoly* polys, int numOfPolys, int numOfCoff)
 {
-    for(int i = 0; i < numOfPolys; i++)
+    for (int i = 0; i < numOfPolys; i++)
         polys[i] = ArrayPoly(numOfCoff);
 }
 
@@ -255,7 +255,7 @@ void sumOfArrayPoly()
     ArrayPoly::currentG = data.tellg();
     data.close();
 
-    ArrayPoly *polys = new ArrayPoly[numOfPolys + 1];
+    ArrayPoly* polys = new ArrayPoly[numOfPolys + 1];
     array_init(polys, numOfPolys + 1, numOfCoff);
 
     polys[numOfPolys] = polys[0].addPoly(polys[1]);
@@ -268,15 +268,15 @@ void sumOfArrayPoly()
     data << "Polynomial after addition: ";
     for (int i = 0; i < numOfCoff; i++)
     {
-        if(i == numOfCoff - 1)
+        if (i == numOfCoff - 1)
             data << polys[numOfPolys].getPoly()[i] << "x" << i;
         else
-           data << polys[numOfPolys].getPoly()[i] << "x" << i << " + "; 
+            data << polys[numOfPolys].getPoly()[i] << "x" << i << " + ";
     }
 
     data << "\n\nIn the format of txt files given after addition is:\n";
     data << numOfPolys << endl << numOfCoff << endl;
-    for(int i = 0; i < numOfCoff; i++)
+    for (int i = 0; i < numOfCoff; i++)
     {
         data << polys[numOfPolys].getPoly()[i] << " ";
     }
@@ -287,13 +287,13 @@ void sumOfArrayPoly()
     data.open(OUTPUT_FILE, ios::in);
 
     string newPolyOutput;
-    
 
-    while(!data.eof())
+
+    while (!data.eof())
     {
         getline(data, newPolyOutput);
         cout << newPolyOutput << endl;
-    }   
+    }
 
     data.close();
 }
@@ -301,8 +301,8 @@ void sumOfArrayPoly()
 int main()
 {
     int choice;
-  
-    cout << "Please enter the number correnspoding to your choice: ";
+
+    cout << "Please enter the number correnspoding to your choice:\n 1 for storing in Array\n2 for stroing in linked list\n ";
     cin >> choice, cout << endl;
 
     switch (choice)
@@ -310,7 +310,7 @@ int main()
     case 1:
         sumOfArrayPoly();
         break;
-    
+
     case 2:
         usinglinkedlist();
         break;
@@ -319,13 +319,13 @@ int main()
         cout << "Invalid choice!\n";
         break;
     }
-    
 
-    
+
+
 
 
     return 0;
-    
-   
+
+
 }
 
